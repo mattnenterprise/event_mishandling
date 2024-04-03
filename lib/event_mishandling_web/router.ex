@@ -1,8 +1,11 @@
 defmodule EventMishandlingWeb.Router do
   use EventMishandlingWeb, :router
 
+  import EventMishandlingWeb.SelectedTab
+
   pipeline :browser do
     plug :accepts, ["html"]
+    plug :fetch_selected_tab
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, html: {EventMishandlingWeb.Layouts, :root}
@@ -17,6 +20,7 @@ defmodule EventMishandlingWeb.Router do
   scope "/", EventMishandlingWeb do
     pipe_through :browser
 
+    live "/panel", Panel
     get "/", PageController, :home
   end
 
