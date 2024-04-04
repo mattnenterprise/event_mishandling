@@ -21,7 +21,7 @@ config :event_mishandling, EventMishandlingWeb.Endpoint,
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
-  code_reloader: false,
+  code_reloader: true,
   debug_errors: true,
   secret_key_base: "s/PwCEvN1zN3JHUU1a8iDPc+ZrMcw+lOJMkDDYDWnKgyZCZlLLTJHsLRG+J8t24h",
   watchers: [
