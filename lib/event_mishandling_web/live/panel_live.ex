@@ -23,10 +23,10 @@ defmodule EventMishandlingWeb.PanelLive do
 
         <aside class="border border-black !w-[270px]">
           <div class="flex flex-col">
-            <div :if={@live_action == :messages_tab}>
+            <div class={if @live_action != :messages_tab, do: "hidden"}>
               <.live_component module={EventMishandlingWeb.MessagesTab} id="messages_tab" />
             </div>
-            <div :if={@live_action == :settings_tab}>
+            <div class={if @live_action != :settings_tab, do: "hidden"}>
               <.live_component module={EventMishandlingWeb.SettingsTab} id="settings_tab" />
             </div>
           </div>
