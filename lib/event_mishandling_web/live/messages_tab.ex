@@ -10,7 +10,7 @@ defmodule EventMishandlingWeb.MessagesTab do
 
   def render(assigns) do
     ~H"""
-    <div class="flex flex-col h-full">
+    <div class="flex flex-col">
       <.live_component
         module={EventMishandlingWeb.MessageComponent}
         id="some_unique_message_id"
@@ -18,7 +18,7 @@ defmodule EventMishandlingWeb.MessagesTab do
       />
       <form
         id="full_add_message_form"
-        class="w-full flex flex-col"
+        class="flex flex-col"
         phx-change="add_message_change"
         phx-submit="add_message"
         phx-target="#full_add_message_form"
