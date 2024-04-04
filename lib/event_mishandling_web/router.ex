@@ -17,6 +17,8 @@ defmodule EventMishandlingWeb.Router do
   scope "/", EventMishandlingWeb do
     pipe_through :browser
 
+    live "/messages_tab", PanelLive, :messages_tab
+    live "/settings_tab", PanelLive, :settings_tab
     get "/", PageController, :home
   end
 
