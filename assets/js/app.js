@@ -54,7 +54,6 @@ window.addEventListener(
   ({ detail: { cookie } }) => {
     document.cookie = cookie;
 
-    // Update the LiveSocket's params with the new preferences - needed for live_redirect
     liveSocket.params = () => ({
       _csrf_token: csrfToken,
       selected_tab: readCookie("selected_tab"),

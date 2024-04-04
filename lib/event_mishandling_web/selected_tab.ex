@@ -37,9 +37,7 @@ defmodule EventMishandlingWeb.SelectedTab do
   defp selected_tab_from_connect_params(nil), do: @default_tab
 
   defp selected_tab_from_connect_params(params) when is_map(params),
-    do: Map.get(params, "selected_tab", @default_tab)
-
-  @one_year_in_seconds 60 * 60 * 24 * 365
+    do: Map.get(params, "selected_tab") || @default_tab
 
   defp attach_assign_selected_tab_hook(socket) do
     socket
@@ -49,8 +47,6 @@ defmodule EventMishandlingWeb.SelectedTab do
         cookie =
           Plug.Conn.Cookies.encode(@selected_tab_cookie_key, %{
             value: selected_tab,
-            max_age: @one_year_in_seconds,
-            secure: true,
             http_only: false,
             same_site: "strict"
           })
